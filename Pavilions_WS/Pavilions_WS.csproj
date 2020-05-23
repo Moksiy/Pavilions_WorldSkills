@@ -72,14 +72,6 @@
     <Compile Include="Command\IPageViewModel.cs" />
     <Compile Include="Command\RelayCommand.cs" />
     <Compile Include="Logic\Mediator.cs" />
-    <Compile Include="Models\City.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Pavilion.cs" />
-    <Compile Include="Models\PavilionsContext.cs" />
-    <Compile Include="Models\Rent.cs" />
-    <Compile Include="Models\ShoppingCenter.cs" />
-    <Compile Include="Models\Status.cs" />
-    <Compile Include="Models\Tenantry.cs" />
     <Compile Include="Model\Cities.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
