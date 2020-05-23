@@ -20,6 +20,7 @@ namespace Pavilions_WS
     /// </summary>
     public partial class MainWindow : Window
     {
+        //Мать его MVVM
         public MainWindow()
         {
             InitializeComponent();

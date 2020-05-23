@@ -4,6 +4,107 @@
              xmlns:local="clr-namespace:Pavilions_WS"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+        <!--Стили для Кнопок-->
+        <Style x:Key="SimpleButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <!--Стили для Заголовков-->
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <!--Стили для Кнопки авторизации-->
+        <Style TargetType="{x:Type Button}" x:Key="AuthorizationButton">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="Width" Value="160"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <!--Стили для Заголовков aвторизации-->
+        <Style x:Key="AuthorizationLabel" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <!--Стили для полей ввода aвторизации-->
+        <Style x:Key="AuthorizationTextBox" TargetType="{x:Type TextBox}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+
+        </Style>
+
+        <!--Стили для полей ввода aвторизации-->
+        <Style x:Key="AuthorizationPassBox" TargetType="{x:Type PasswordBox}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+
+        <!--Стиль для больших заголовков-->
+        <Style x:Key="BigLabel" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Light"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="LightGray"/>
+        </Style>
+
+        <!--Стили для UserControllov-->
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="MinHeight" Value="700"/>
+            <Setter Property="MinWidth" Value="1200"/>
+            <Setter Property="Width" Value="1200"/>
+            <Setter Property="Height" Value="700"/>
+        </Style>
+
+        <!--Стили для Border-->
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Width" Value="550"/>
+            <Setter Property="Height" Value="450"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
+        <!--Стили для Border авторизации-->
+        <Style x:Key="BorderTextBox" TargetType="Border">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="CornerRadius" Value="3"/>
+        </Style>
+
     </Application.Resources>
 </Application>

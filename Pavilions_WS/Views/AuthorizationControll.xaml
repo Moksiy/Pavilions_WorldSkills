@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="Pavilions_WS.Views.AuthorizationControll"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pavilions_WS.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Border Style="{StaticResource BorderStyle}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="320"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label Style="{StaticResource BigLabel}" Grid.Row="1" Grid.Column="1" Content="АВТОРИЗАЦИЯ"/>
+                
+                <Label Style="{StaticResource AuthorizationLabel}" Grid.Row="3" Grid.Column="1" Content="Логин"/>
+                
+                <Label Style="{StaticResource AuthorizationLabel}" Grid.Row="6" Grid.Column="1" Content="Пароль"/>
+
+                <Border Style="{StaticResource BorderTextBox}" Grid.Row="4" Grid.Column="1">
+                    <TextBox Style="{StaticResource AuthorizationTextBox}"/>
+                </Border>
+
+                <Border Style="{StaticResource BorderTextBox}" Grid.Row="7" Grid.Column="1">
+                    <PasswordBox Style="{StaticResource AuthorizationPassBox}"/>
+                </Border>
+
+                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
