@@ -2,7 +2,9 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Pavilions_WS"
-             StartupUri="MainWindow.xaml">
+             xmlns:viewmodels="clr-namespace:Pavilions_WS.ViewModels"
+             xmlns:view="clr-namespace:Pavilions_WS.Views"
+             xmlns:logic="clr-namespace:Pavilions_WS.Logic">
     <Application.Resources>
 
         <!--Стили для Кнопок-->
@@ -26,12 +28,13 @@
             <Setter Property="FontSize" Value="20"/>
             <Setter Property="FontFamily" Value="Bahnschrift Light"/>
             <Setter Property="Width" Value="160"/>
-            <Setter Property="Height" Value="40"/>
+            <Setter Property="Height" Value="39"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Background" Value="White"/>
             <Setter Property="BorderBrush" Value="LightGray"/>
             <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style>
 
         <!--Стили для Заголовков aвторизации-->
@@ -45,7 +48,7 @@
 
         <!--Стили для полей ввода aвторизации-->
         <Style x:Key="AuthorizationTextBox" TargetType="{x:Type TextBox}">
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="22"/>
             <Setter Property="FontFamily" Value="Bahnschrift Light"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -54,12 +57,14 @@
             <Setter Property="Height" Value="auto"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
 
         </Style>
 
         <!--Стили для полей ввода aвторизации-->
         <Style x:Key="AuthorizationPassBox" TargetType="{x:Type PasswordBox}">
-            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontSize" Value="22"/>
             <Setter Property="FontFamily" Value="Bahnschrift Light"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -68,6 +73,8 @@
             <Setter Property="Height" Value="auto"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
         </Style>
 
         <!--Стиль для больших заголовков-->
@@ -105,6 +112,11 @@
             <Setter Property="BorderBrush" Value="LightGray"/>
             <Setter Property="CornerRadius" Value="3"/>
         </Style>
+
+
+        <DataTemplate DataType="{x:Type viewmodels:AuthorizationViewModel}">
+            <view:AuthorizationControll />
+        </DataTemplate>
 
     </Application.Resources>
 </Application>

@@ -55,6 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\EventArgs.cs" />
+    <Compile Include="Command\EventRaiser.cs" />
+    <Compile Include="Command\IPageViewModel.cs" />
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Logic\Mediator.cs" />
+    <Compile Include="ViewModels\AuthorizationViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Views\AuthorizationControll.xaml.cs">
       <DependentUpon>AuthorizationControll.xaml</DependentUpon>
     </Compile>
@@ -103,7 +111,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Эмблема.png" />

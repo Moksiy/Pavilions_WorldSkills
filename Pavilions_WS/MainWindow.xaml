@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Pavilions_WS"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="700" MinWidth="1200" Height="700" Width="1200">
+        Title="Pavilions" MinHeight="700" MinWidth="1200" Height="700" Width="1200"
+        Icon="Resources/Эмблема.png">
     <Grid>
-        <!--Content="{Binding CurrentPageViewModel}"-->
-        <!--<ContentPresenter Content="{Binding SelectedItem}"/>-->
+        <ContentControl Content="{Binding CurrentPageViewModel}" />
     </Grid>
 </Window>
