@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Pavilions_WS.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="#FF1B1B1B">
+    <Grid Background="#FF2C2C2C">
         <Border Style="{StaticResource BorderStyle}">
             <Grid>
                 <Grid.RowDefinitions>

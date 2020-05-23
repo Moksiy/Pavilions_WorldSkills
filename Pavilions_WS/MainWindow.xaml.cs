@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pavilions_WS.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,16 @@ namespace Pavilions_WS
         public MainWindow()
         {
             InitializeComponent();
+
+            using (var context = new PavilionsContext())
+            {
+                string sos = "";
+                foreach(var item in context.Pavilions)
+                {
+                    sos += item.Name + " " + item.Status + "\n";
+                }
+                MessageBox.Show(sos);
+            }
         }
     }
 }
