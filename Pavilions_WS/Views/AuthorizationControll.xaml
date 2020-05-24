@@ -38,14 +38,18 @@
                 <Label Style="{StaticResource AuthorizationLabel}" Grid.Row="6" Grid.Column="1" Content="Пароль"/>
 
                 <Border Style="{StaticResource BorderTextBox}" Grid.Row="4" Grid.Column="1">
-                    <TextBox Style="{StaticResource AuthorizationTextBox}" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBox Style="{StaticResource AuthorizationTextBox}"
+                    Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
 
                 <Border Style="{StaticResource BorderTextBox}" Grid.Row="7" Grid.Column="1">
-                    <PasswordBox Style="{StaticResource AuthorizationPassBox}" />
+                    <PasswordBox Style="{StaticResource AuthorizationPassBox}" logic:PasswordBoxAssistant.BindPassword="True"
+                                 logic:PasswordBoxAssistant.BoundPassword="{Binding Path=Password, Mode=TwoWay, 
+                                                                                ValidatesOnDataErrors=True,
+                                                                                UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
 
-                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ" />
+                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ" IsEnabled="{Binding IsValid}" Command="{Binding TestC}"/>
             </Grid>
         </Border>
     </Grid>
