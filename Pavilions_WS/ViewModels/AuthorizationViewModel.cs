@@ -6,22 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Pavilions_WS.Logic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Pavilions_WS.ViewModels
 {
-    public class AuthorizationViewModel : BaseViewModel, IPageViewModel
+    class AuthorizationViewModel : BaseViewModel, IPageViewModel
     {
-        /*private ICommand _goTo2;
-
-        public ICommand GoTo2
-        {
-            get
-            {
-                return _goTo2 ?? (_goTo2 = new RelayCommand(x =>
-                {
-                    Mediator.Notify("GoTo2Screen", "");
-                }));
-            }
-        }*/
+        
     }
 }

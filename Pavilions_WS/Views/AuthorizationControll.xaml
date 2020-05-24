@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Pavilions_WS.Views"
+             xmlns:logic="clr-namespace:Pavilions_WS.Logic"
+             xmlns:vm="clr-namespace:Pavilions_WS.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#FF2C2C2C">
@@ -36,14 +38,14 @@
                 <Label Style="{StaticResource AuthorizationLabel}" Grid.Row="6" Grid.Column="1" Content="Пароль"/>
 
                 <Border Style="{StaticResource BorderTextBox}" Grid.Row="4" Grid.Column="1">
-                    <TextBox Style="{StaticResource AuthorizationTextBox}"/>
+                    <TextBox Style="{StaticResource AuthorizationTextBox}" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
 
                 <Border Style="{StaticResource BorderTextBox}" Grid.Row="7" Grid.Column="1">
-                    <PasswordBox Style="{StaticResource AuthorizationPassBox}"/>
+                    <PasswordBox Style="{StaticResource AuthorizationPassBox}" />
                 </Border>
 
-                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ"/>
+                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ" />
             </Grid>
         </Border>
     </Grid>

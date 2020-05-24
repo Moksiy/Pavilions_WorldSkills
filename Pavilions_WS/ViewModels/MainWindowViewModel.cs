@@ -1,6 +1,7 @@
 ﻿using Pavilions_WS.Logic;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,6 @@ namespace Pavilions_WS.ViewModels
     {
         private IPageViewModel _currentPageViewModel;
         private List<IPageViewModel> _pageViewModels;
-
-        public string UserLogin { get; set; }
-        public string UserPassword { get; set; }
 
         /// <summary>
         /// Список страниц
@@ -63,6 +61,7 @@ namespace Pavilions_WS.ViewModels
         /// <param name="obj"></param>
         private void LoadAuthorisationPage(object obj)
         {
+            PageViewModels[0] = new AuthorizationViewModel();
             ChangeViewModel(PageViewModels[0]);
         }
 
