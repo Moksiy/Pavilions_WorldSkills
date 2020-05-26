@@ -14,7 +14,25 @@ namespace Pavilions_WS.ViewModels
 {
     public class ShoppingCentersListViewModel: BaseViewModel, IPageViewModel
     {
+        public ShoppingCentersListViewModel()
+        {
+            centers = ShoppingCentersListCommands.GetSC();
+        }
+
         ObservableCollection<ShoppingCenterElement> centers;
+
+        public ObservableCollection<ShoppingCenterElement> Centers
+        {
+            get
+            {
+                return centers;
+            }
+            set
+            {
+                centers = value;
+                OnPropertyChanged("Centers");
+            }
+        }
 
         private ICommand exit;
         public ICommand Exit

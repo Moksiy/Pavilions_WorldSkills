@@ -11,26 +11,41 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Border Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Margin="20,0,20,0">
-            <DataGrid>
-                
+            <DataGrid FontFamily="Bahnschrift Light" FontSize="14" ItemsSource="{Binding Path=Centers}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn x:Name="SCName" Header="Название" Width="50*" Binding="{Binding Name}"  />
+                    <DataGridTextColumn x:Name="SCStatus" Header="Статус" Width="25*" Binding="{Binding Status}"  />
+                    <DataGridTextColumn x:Name="PCount" Header="Кол-во павильонов" Width="24*" Binding="{Binding Quantity}"  />
+                    <DataGridTextColumn x:Name="SCCity" Header="Город" Width="35*" Binding="{Binding City}"  />
+                    <DataGridTextColumn x:Name="BuildCost" Header="Стоимость" Width="30*" Binding="{Binding Cost}"  />
+                    <DataGridTextColumn x:Name="FloorsCount" Header="Этажность" Width="20*" Binding="{Binding Floors}"  />
+                    <DataGridTextColumn x:Name="Coeff" Header="Коэффициент" Width="18*" Binding="{Binding Coefficient}"  />
+                </DataGrid.Columns>
             </DataGrid>
         </Border>
 
         <Border Grid.Row="0" Grid.Column="0">
             <Grid>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <Button Grid.Column="1" Width="100" Height="40" 
-                 Style="{StaticResource AuthorizationButton}" Content="ВЫХОД"
+                
+                <Button Grid.Column="1" Width="60" Height="25" 
+                 Content="ВЫХОД"
                  Command="{Binding Exit}"/>
+
+                <StackPanel Grid.Column="0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center">
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>

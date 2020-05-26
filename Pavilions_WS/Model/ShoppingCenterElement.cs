@@ -14,9 +14,9 @@ namespace Pavilions_WS.Model
         private string status;
         private Int32 quantity;
         private string city;
-        private double cost;
-        private Int32 floors;
-        private double coefficient;
+        private double? cost;
+        private Int32? floors;
+        private double? coefficient;
 
         public ShoppingCenterElement()
         {
@@ -78,12 +78,15 @@ namespace Pavilions_WS.Model
         /// <summary>
         /// Стоимость
         /// </summary>
-        public double Cost
+        public double? Cost
         {
             get => cost;
             set
             {
-                cost = value;
+                if (value != null)
+                    cost = (double)value;
+                else
+                    cost = 0;
                 OnPropertyChanged("Cost");
             }
         }
@@ -91,12 +94,15 @@ namespace Pavilions_WS.Model
         /// <summary>
         /// Этажность
         /// </summary>
-        public Int32 Floors
+        public Int32? Floors
         {
             get => floors;
             set
             {
-                floors = value;
+                if (Floors != null)
+                    floors = (Int32)value;
+                else
+                    floors = 0;
                 OnPropertyChanged("Floors");
             }
         }
@@ -104,12 +110,15 @@ namespace Pavilions_WS.Model
         /// <summary>
         /// Добавочный коэффициент
         /// </summary>
-        public double Coefficient
+        public double? Coefficient
         {
             get => coefficient;
             set
             {
-                coefficient = value;
+                if (Coefficient != null)
+                    coefficient = (double)value;
+                else
+                    coefficient = 0;
                 OnPropertyChanged("Coefficient");
             }
         }
