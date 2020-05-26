@@ -65,17 +65,23 @@ namespace Pavilions_WS.ViewModels
             ChangeViewModel(PageViewModels[0]);
         }
 
+        private void LoadShoppingCentersList(object obj)
+        {
+            PageViewModels[1] = new ShoppingCentersListViewModel();
+            ChangeViewModel(PageViewModels[1]);
+        }
+
 
         public MainWindowViewModel()
         {
             // Добавлем все странички
             PageViewModels.Add(new AuthorizationViewModel());
-            //PageViewModels.Add(new UserControl2ViewModel());
+            PageViewModels.Add(new ShoppingCentersListViewModel());
 
             CurrentPageViewModel = PageViewModels[0];
 
             Mediator.Subscribe("LoadAuthorisationPage", LoadAuthorisationPage);
-            //Mediator.Subscribe("GoTo2Screen", OnGo2Screen);
+            Mediator.Subscribe("LoadShoppingCentersList", LoadShoppingCentersList);
         }
     }
 }

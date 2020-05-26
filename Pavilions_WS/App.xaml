@@ -119,5 +119,9 @@
             <view:AuthorizationControll />
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewmodels:ShoppingCentersListViewModel}">
+            <view:ShoppingCentersList />
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

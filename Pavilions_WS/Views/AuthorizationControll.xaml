@@ -49,7 +49,12 @@
                                                                                 UpdateSourceTrigger=PropertyChanged}"/>
                 </Border>
 
-                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ" IsEnabled="{Binding IsValid}" Command="{Binding TestC}"/>
+                <Button Grid.Column="1" Grid.Row="9" Style="{StaticResource AuthorizationButton}" Content="ВОЙТИ" IsEnabled="{Binding IsValid}" Command="{Binding TryAuthorizate}"/>
+                <TextBlock Text="{Binding Path=Error}" Grid.Row="8" Grid.Column="1" 
+                       Foreground="Red" FontFamily="Bahnschrift Light" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="18" FontWeight="Bold"/>
             </Grid>
         </Border>
     </Grid>

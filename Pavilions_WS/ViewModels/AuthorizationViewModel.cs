@@ -8,33 +8,20 @@ using System.Windows.Input;
 using Pavilions_WS.Logic;
 using System.ComponentModel.DataAnnotations;
 using System.Windows;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Pavilions_WS.Model;
 
 namespace Pavilions_WS.ViewModels
 {
     class AuthorizationViewModel : ValidateViewModel, IPageViewModel
     {
-        /*private string login;
-
-        public string Login
-        {
-            get => login;
-            set => login = value;
-        }
-
-        private string password;
-        public string Password
-        {
-            get => password;
-            set => password = value;
-        }*/
-
-
         string login;
         [Required]
         public string Login
         {
             get => login;
-            set => Set(ref login, value);            
+            set => Set(ref login, value);
         }
 
         string password;
@@ -45,14 +32,41 @@ namespace Pavilions_WS.ViewModels
             set => Set(ref password, value);
         }
 
-        private ICommand testC;
-        public ICommand TestC
+        string error;
+        public string Error
+        {
+            get => error;
+            set => Set(ref error, value);
+        }
+
+        private ICommand authorizate;
+        public ICommand TryAuthorizate
         {
             get
             {
-                return testC ?? (testC = new RelayCommand(x =>
+                return authorizate ?? (authorizate = new RelayCommand(x =>
                 {
-                    MessageBox.Show(login + "\n" + password);                    
+                    string error = AuthorizationCommands.Authorizate(Login, Password);
+                    if (String.IsNullOrEmpty(error))
+                    {
+                        switch (CurrentUser.Role)
+                        {
+                            case "Менеджер С":
+                                Mediator.Notify("LoadShoppingCentersList");
+                                break;
+
+                            case "  ":
+                                Mediator.Notify("");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        if (error == "неверная комбинация логин-пароль")
+                            Error = error;
+                        else
+                            MessageBox.Show(error);
+                    }
                 }));
             }
         }
