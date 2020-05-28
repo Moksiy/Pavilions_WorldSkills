@@ -20,14 +20,15 @@ namespace Pavilions_WS.Model
             this.Rent = new HashSet<Rent>();
         }
     
-        public string Name { get; set; }
+        public int ShoppingCenter { get; set; }
         public string Number { get; set; }
         public int Floor { get; set; }
         public int Status { get; set; }
         public Nullable<float> Square { get; set; }
         public Nullable<decimal> Cost { get; set; }
-        public Nullable<float> Coefficient { get; set; }
+        public Nullable<float> Coefficcient { get; set; }
     
+        public virtual ShoppingCenters ShoppingCenters { get; set; }
         public virtual Statuses Statuses { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rent> Rent { get; set; }

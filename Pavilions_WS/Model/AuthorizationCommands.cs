@@ -14,7 +14,7 @@ namespace Pavilions_WS.Model
 
             try
             {
-                using (var context = new PavilionsContext())
+                using (var context = new PavilionsEntities())
                 {
                     var user = context.Staff.FirstOrDefault(empl => empl.Login == login);
                     if (user == null || user.Password != pass)

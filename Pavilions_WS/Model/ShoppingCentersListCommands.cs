@@ -22,7 +22,7 @@ namespace Pavilions_WS.Model
             string error = default;
             try
             {
-                using(var context = new PavilionsContext())
+                using(var context = new PavilionsEntities())
                 {
                     ShoppingCenters pavilion = context.ShoppingCenters.Where(o => o.ID == elem.Number).FirstOrDefault();
 
@@ -44,7 +44,7 @@ namespace Pavilions_WS.Model
 
             try
             {
-                using (var context = new PavilionsContext())
+                using (var context = new PavilionsEntities())
                 {
                     var centers = (from scenters in context.ShoppingCenters
                                   join cities in context.Cities on scenters.City equals cities.Code

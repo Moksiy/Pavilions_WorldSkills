@@ -16,13 +16,13 @@
           <Key>
             <PropertyRef Name="Number" />
           </Key>
-          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ShoppingCenter" Type="int" Nullable="false" />
           <Property Name="Number" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="Floor" Type="int" Nullable="false" />
           <Property Name="Status" Type="int" Nullable="false" />
           <Property Name="Square" Type="real" />
           <Property Name="Cost" Type="money" />
-          <Property Name="Coefficient" Type="real" />
+          <Property Name="Coefficcient" Type="real" />
         </EntityType>
         <EntityType Name="Rent">
           <Key>
@@ -92,7 +92,19 @@
           <Property Name="Phone" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Pavilions_Statuses">
+        <Association Name="FK_PavilionsN_ShoppingCenters">
+          <End Role="ShoppingCenters" Type="Self.ShoppingCenters" Multiplicity="1" />
+          <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingCenters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pavilions">
+              <PropertyRef Name="ShoppingCenter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PavilionsN_Statuses">
           <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
           <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -104,7 +116,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rent_Pavilions">
+        <Association Name="FK_Rent_PavilionsN">
           <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="1" />
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -228,11 +240,15 @@
           <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tenantry" EntityType="Self.Tenantry" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Pavilions_Statuses" Association="Self.FK_Pavilions_Statuses">
+          <AssociationSet Name="FK_PavilionsN_ShoppingCenters" Association="Self.FK_PavilionsN_ShoppingCenters">
+            <End Role="ShoppingCenters" EntitySet="ShoppingCenters" />
+            <End Role="Pavilions" EntitySet="Pavilions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PavilionsN_Statuses" Association="Self.FK_PavilionsN_Statuses">
             <End Role="Statuses" EntitySet="Statuses" />
             <End Role="Pavilions" EntitySet="Pavilions" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rent_Pavilions" Association="Self.FK_Rent_Pavilions">
+          <AssociationSet Name="FK_Rent_PavilionsN" Association="Self.FK_Rent_PavilionsN">
             <End Role="Pavilions" EntitySet="Pavilions" />
             <End Role="Rent" EntitySet="Rent" />
           </AssociationSet>
@@ -278,15 +294,16 @@
           <Key>
             <PropertyRef Name="Number" />
           </Key>
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ShoppingCenter" Type="Int32" Nullable="false" />
           <Property Name="Number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Floor" Type="Int32" Nullable="false" />
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="Square" Type="Single" />
           <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="Coefficient" Type="Single" />
-          <NavigationProperty Name="Statuses" Relationship="Self.FK_Pavilions_Statuses" FromRole="Pavilions" ToRole="Statuses" />
-          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Pavilions" FromRole="Pavilions" ToRole="Rent" />
+          <Property Name="Coefficcient" Type="Single" />
+          <NavigationProperty Name="ShoppingCenters" Relationship="Self.FK_PavilionsN_ShoppingCenters" FromRole="Pavilions" ToRole="ShoppingCenters" />
+          <NavigationProperty Name="Statuses" Relationship="Self.FK_PavilionsN_Statuses" FromRole="Pavilions" ToRole="Statuses" />
+          <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_PavilionsN" FromRole="Pavilions" ToRole="Rent" />
         </EntityType>
         <EntityType Name="Rent">
           <Key>
@@ -300,7 +317,7 @@
           <Property Name="Status" Type="Int32" Nullable="false" />
           <Property Name="StartRent" Type="DateTime" Precision="0" />
           <Property Name="EndRent" Type="DateTime" Precision="0" />
-          <NavigationProperty Name="Pavilions" Relationship="Self.FK_Rent_Pavilions" FromRole="Rent" ToRole="Pavilions" />
+          <NavigationProperty Name="Pavilions" Relationship="Self.FK_Rent_PavilionsN" FromRole="Rent" ToRole="Pavilions" />
           <NavigationProperty Name="ShoppingCenters" Relationship="Self.FK_Rent_ShoppingCenters" FromRole="Rent" ToRole="ShoppingCenters" />
           <NavigationProperty Name="Staff1" Relationship="Self.FK_Rent_Staff" FromRole="Rent" ToRole="Staff" />
           <NavigationProperty Name="Statuses" Relationship="Self.FK_Rent_Statuses" FromRole="Rent" ToRole="Statuses" />
@@ -320,6 +337,7 @@
           <Property Name="Floors" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Cities" Relationship="Self.FK_ShoppingCenters_Cities" FromRole="ShoppingCenters" ToRole="Cities" />
+          <NavigationProperty Name="Pavilions" Relationship="Self.FK_PavilionsN_ShoppingCenters" FromRole="ShoppingCenters" ToRole="Pavilions" />
           <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_ShoppingCenters" FromRole="ShoppingCenters" ToRole="Rent" />
           <NavigationProperty Name="Statuses" Relationship="Self.FK_ShoppingCenters_Statuses" FromRole="ShoppingCenters" ToRole="Statuses" />
         </EntityType>
@@ -345,7 +363,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Pavilions" Relationship="Self.FK_Pavilions_Statuses" FromRole="Statuses" ToRole="Pavilions" />
+          <NavigationProperty Name="Pavilions" Relationship="Self.FK_PavilionsN_Statuses" FromRole="Statuses" ToRole="Pavilions" />
           <NavigationProperty Name="Rent" Relationship="Self.FK_Rent_Statuses" FromRole="Statuses" ToRole="Rent" />
           <NavigationProperty Name="ShoppingCenters" Relationship="Self.FK_ShoppingCenters_Statuses" FromRole="Statuses" ToRole="ShoppingCenters" />
         </EntityType>
@@ -381,7 +399,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Pavilions_Statuses">
+        <Association Name="FK_PavilionsN_ShoppingCenters">
+          <End Role="ShoppingCenters" Type="Self.ShoppingCenters" Multiplicity="1" />
+          <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ShoppingCenters">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Pavilions">
+              <PropertyRef Name="ShoppingCenter" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PavilionsN_Statuses">
           <End Role="Statuses" Type="Self.Statuses" Multiplicity="1" />
           <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -393,7 +423,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Rent_Pavilions">
+        <Association Name="FK_Rent_PavilionsN">
           <End Role="Pavilions" Type="Self.Pavilions" Multiplicity="1" />
           <End Role="Rent" Type="Self.Rent" Multiplicity="*" />
           <ReferentialConstraint>
@@ -478,11 +508,15 @@
             <End Role="Cities" EntitySet="Cities" />
             <End Role="ShoppingCenters" EntitySet="ShoppingCenters" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pavilions_Statuses" Association="Self.FK_Pavilions_Statuses">
+          <AssociationSet Name="FK_PavilionsN_ShoppingCenters" Association="Self.FK_PavilionsN_ShoppingCenters">
+            <End Role="ShoppingCenters" EntitySet="ShoppingCenters" />
+            <End Role="Pavilions" EntitySet="Pavilions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PavilionsN_Statuses" Association="Self.FK_PavilionsN_Statuses">
             <End Role="Statuses" EntitySet="Statuses" />
             <End Role="Pavilions" EntitySet="Pavilions" />
           </AssociationSet>
-          <AssociationSet Name="FK_Rent_Pavilions" Association="Self.FK_Rent_Pavilions">
+          <AssociationSet Name="FK_Rent_PavilionsN" Association="Self.FK_Rent_PavilionsN">
             <End Role="Pavilions" EntitySet="Pavilions" />
             <End Role="Rent" EntitySet="Rent" />
           </AssociationSet>
@@ -565,13 +599,13 @@
           <EntitySetMapping Name="Pavilions">
             <EntityTypeMapping TypeName="PavilionsModel.Pavilions">
               <MappingFragment StoreEntitySet="Pavilions">
-                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ShoppingCenter" ColumnName="ShoppingCenter" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Floor" ColumnName="Floor" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Square" ColumnName="Square" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Coefficient" ColumnName="Coefficient" />
+                <ScalarProperty Name="Coefficcient" ColumnName="Coefficcient" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

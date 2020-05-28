@@ -76,52 +76,52 @@
     <Compile Include="Logic\PasswordBoxAssistant.cs" />
     <Compile Include="Model\AuthorizationCommands.cs" />
     <Compile Include="Model\Cities.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\CurrentUser.cs" />
-    <Compile Include="Model\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Model\Pavilions.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PavilionsEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PavilionsEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PavilionsEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PavilionsEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PavilionsEntities.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\Rent.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ShoppingCenterElement.cs" />
     <Compile Include="Model\ShoppingCenters.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\ShoppingCentersListCommands.cs" />
     <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Staff.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Statuses.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Tenantry.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>PavilionsEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddNewShoppingCenterViewModel.cs" />
     <Compile Include="ViewModels\AuthorizationViewModel.cs" />
@@ -182,12 +182,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model\Model1.edmx">
+    <EntityDeploy Include="Model\PavilionsEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>PavilionsEntities.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="Model\PavilionsEntities.edmx.diagram">
+      <DependentUpon>PavilionsEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -198,21 +198,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Resource Include="Resources\Эмблема.png" />
+    <Content Include="Model\PavilionsEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PavilionsEntities.edmx</DependentUpon>
+      <LastGenOutput>PavilionsEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\PavilionsEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PavilionsEntities.edmx</DependentUpon>
+      <LastGenOutput>PavilionsEntities.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Model\Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model\Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
+    <Resource Include="Resources\Эмблема.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

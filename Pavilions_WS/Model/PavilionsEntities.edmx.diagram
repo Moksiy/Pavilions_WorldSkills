@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4d2c1a3c10864e00a6bfe3d50eb7c871" Name="Diagram1">
+        <EntityTypeShape EntityType="PavilionsModel.Cities" Width="1.5" PointX="3.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.Pavilions" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.Rent" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.ShoppingCenters" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.Staff" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.Statuses" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PavilionsModel.Tenantry" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="PavilionsModel.FK_ShoppingCenters_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_PavilionsN_ShoppingCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_PavilionsN_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_Rent_PavilionsN" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_Rent_ShoppingCenters" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_Rent_Staff" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_Rent_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_Rent_Tenantry" ManuallyRouted="false" />
+        <AssociationConnector Association="PavilionsModel.FK_ShoppingCenters_Statuses" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
