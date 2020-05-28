@@ -17,10 +17,24 @@ namespace Pavilions_WS.Model
         private double? cost;
         private Int32? floors;
         private double? coefficient;
+        private int number;
 
         public ShoppingCenterElement()
         {
 
+        }
+
+        /// <summary>
+        /// Номер ТЦ
+        /// </summary>
+        public int Number
+        {
+            get => number;
+            set
+            {
+                number = value;
+                OnPropertyChanged("Number");
+            }
         }
 
         /// <summary>

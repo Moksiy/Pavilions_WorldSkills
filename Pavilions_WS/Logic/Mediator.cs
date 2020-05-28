@@ -8,7 +8,7 @@ namespace Pavilions_WS.Logic
 {
     public static class Mediator
     {
-        private static IDictionary<string, List<Action<object>>> pl_dict =
+        private static readonly IDictionary<string, List<Action<object>>> pl_dict =
            new Dictionary<string, List<Action<object>>>();
 
         public static void Subscribe(string token, Action<object> callback)

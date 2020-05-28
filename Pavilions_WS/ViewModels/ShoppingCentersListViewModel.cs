@@ -34,6 +34,54 @@ namespace Pavilions_WS.ViewModels
             }
         }
 
+        private ICommand addnew;
+        public ICommand AddNew
+        {
+            get
+            {
+                return addnew ?? (addnew = new RelayCommand(x =>
+                {
+                    ShoppingCentersListCommands.AddNew();
+                }));
+            }
+        }
+
+
+        private ICommand remove;
+        public ICommand RemoveCommand
+        {
+            get
+            {
+                if (remove == null)
+                {
+                    remove = new DelegateCommand(CanExecute, Execute);
+                }
+                return remove;
+            }
+        }
+
+        private void Execute(object parameter)
+        {
+            int index = Centers.IndexOf(parameter as ShoppingCenterElement);
+            if (index > -1 && index < Centers.Count)
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Вы уверены, что хотите удалить торговый центр из списка?", "Удаление", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    string message = ShoppingCentersListCommands.Remove(Centers[index]);
+                    if (String.IsNullOrEmpty(message))
+                        Centers.RemoveAt(index);
+                    else
+                        MessageBox.Show(message);
+                }
+            }
+        }
+
+        private bool CanExecute(object parameter)
+        {
+            return true;
+        }
+
         private ICommand exit;
         public ICommand Exit
         {

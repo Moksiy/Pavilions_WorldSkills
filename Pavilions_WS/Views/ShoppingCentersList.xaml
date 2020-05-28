@@ -17,15 +17,26 @@
         </Grid.RowDefinitions>
 
         <Border Grid.Column="0" Grid.Row="1" BorderThickness="2" BorderBrush="LightGray" Margin="20,0,20,0">
-            <DataGrid FontFamily="Bahnschrift Light" FontSize="14" ItemsSource="{Binding Path=Centers}" AutoGenerateColumns="False">
+            <DataGrid FontFamily="Bahnschrift Light" FontSize="14" ItemsSource="{Binding Path=Centers}" AutoGenerateColumns="False" IsReadOnly="True">
                 <DataGrid.Columns>
                     <DataGridTextColumn x:Name="SCName" Header="Название" Width="50*" Binding="{Binding Name}"  />
                     <DataGridTextColumn x:Name="SCStatus" Header="Статус" Width="25*" Binding="{Binding Status}"  />
-                    <DataGridTextColumn x:Name="PCount" Header="Кол-во павильонов" Width="24*" Binding="{Binding Quantity}"  />
+                    <DataGridTextColumn x:Name="PCount" Header="Кол-во павильонов" Width="26*" Binding="{Binding Quantity}"  />
                     <DataGridTextColumn x:Name="SCCity" Header="Город" Width="35*" Binding="{Binding City}"  />
                     <DataGridTextColumn x:Name="BuildCost" Header="Стоимость" Width="30*" Binding="{Binding Cost}"  />
                     <DataGridTextColumn x:Name="FloorsCount" Header="Этажность" Width="20*" Binding="{Binding Floors}"  />
                     <DataGridTextColumn x:Name="Coeff" Header="Коэффициент" Width="18*" Binding="{Binding Coefficient}"  />
+                    <DataGridTemplateColumn Width="8*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Button Content="❌" Margin="3" Width="30" Command="{Binding Path=DataContext.RemoveCommand,RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                        CommandParameter="{Binding}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
                 </DataGrid.Columns>
             </DataGrid>
         </Border>
@@ -48,5 +59,10 @@
                 </StackPanel>
             </Grid>
         </Border>
+
+        <Button Grid.Column="0" Grid.Row="2" Width="150" Height="30" 
+                Content="Добавить новый ТЦ" FontSize="14" 
+                FontFamily="Bahnschrift Light"
+                Command="{Binding AddNew}"/>
     </Grid>
 </UserControl>

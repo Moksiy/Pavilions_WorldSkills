@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pavilions_WS.Logic;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,6 +12,32 @@ namespace Pavilions_WS.Model
 {
     public static class ShoppingCentersListCommands
     {
+        public static void AddNew()
+        {
+            Mediator.Notify("");
+        }
+
+        public static string Remove(ShoppingCenterElement elem)
+        {
+            string error = default;
+            try
+            {
+                using(var context = new PavilionsContext())
+                {
+                    ShoppingCenters pavilion = context.ShoppingCenters.Where(o => o.ID == elem.Number).FirstOrDefault();
+
+                    context.ShoppingCenters.Remove(pavilion);
+
+                    context.SaveChanges();
+                }
+            }
+            catch(Exception ex)
+            {
+                error = ex.ToString();
+            }
+            return error;
+        }
+
         public static ObservableCollection<ShoppingCenterElement> GetSC()
         {
             ObservableCollection<ShoppingCenterElement> result = new ObservableCollection<ShoppingCenterElement>();
@@ -24,13 +51,14 @@ namespace Pavilions_WS.Model
                                   join statuses in context.Statuses on scenters.Status equals statuses.ID
                                   select new
                                   {
-                                      Name = scenters.Name,
-                                      Status = statuses.Status,
-                                      Quantity = scenters.Quantity,
-                                      City = cities.City,
-                                      Cost = scenters.Cost,
-                                      Floors = scenters.Floors,
-                                      Coefficient = scenters.Coefficient
+                                      scenters.Name,
+                                      statuses.Status,
+                                      scenters.Quantity,
+                                      cities.City,
+                                      scenters.Cost,
+                                      scenters.Floors,
+                                      scenters.Coefficient,
+                                      scenters.ID
                                   }).ToList();
                     foreach (var item in centers)
                     {
@@ -42,7 +70,8 @@ namespace Pavilions_WS.Model
                             City = item.City,
                             Cost = (double?)item.Cost,
                             Floors = (Int32?)item.Floors,
-                            Coefficient = (double?)item.Coefficient
+                            Coefficient = (double?)item.Coefficient,
+                            Number = item.ID
                         });
                     }
 
